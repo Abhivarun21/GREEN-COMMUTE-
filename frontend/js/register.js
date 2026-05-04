@@ -24,7 +24,7 @@ async function handleRegister() {
 
   if (res.ok) {
     alert("Registered successfully!");
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   } else {
     alert(data.error);
   }

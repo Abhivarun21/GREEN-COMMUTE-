@@ -10,8 +10,13 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 /* Middleware */
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+  origin: [
+    "https://green-commute-tau.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));app.use(express.json());
 
 /* Root route */
 app.get("/", (req, res) => {
