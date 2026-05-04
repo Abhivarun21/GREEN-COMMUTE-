@@ -51,7 +51,7 @@ let start=[data1[0].lon,data1[0].lat];
 let end=[data2[0].lon,data2[0].lat];
 
 /* ROUTE API */
-let response = await fetch("http://https://green-commute-uib8.onrender.com/api/route", {
+let response = await fetch("http://green-commute-uib8.onrender.com/api/route", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ start, end })
