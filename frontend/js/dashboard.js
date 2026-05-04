@@ -51,7 +51,7 @@ let start=[data1[0].lon,data1[0].lat];
 let end=[data2[0].lon,data2[0].lat];
 
 /* ROUTE API */
-let response = await fetch("http://green-commute-uib8.onrender.com/api/route", {
+let response = await fetch("https://green-commute-uib8.onrender.com/api/route", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ start, end })
@@ -82,13 +82,13 @@ setTimeout(()=>map.invalidateSize(),200);
 let distanceKm=data.features[0].properties.summary.distance/1000;
 
 /* BACKEND */
-let emissions=await fetch("http://green-commute-uib8.onrender.com/api/emission",{
+let emissions=await fetch("https://green-commute-uib8.onrender.com/api/emission",{
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({distance:distanceKm})
 }).then(r=>r.json());
 
-let costs=await fetch("http://green-commute-uib8.onrender.com/api/cost",{
+let costs=await fetch("https://green-commute-uib8.onrender.com/api/cost",{
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({distance:distanceKm})
@@ -173,7 +173,7 @@ btn.innerText = "Find Route";
 function selectMode(mode){
 document.getElementById("modePopup").style.display="none";
 
-fetch("http://green-commute-uib8.onrender.com/api/save-trip",{
+fetch("https://green-commute-uib8.onrender.com/api/save-trip",{
 method:"POST",
 headers:{
 "Content-Type":"application/json",
@@ -191,7 +191,7 @@ cost:mode.cost
 
 /* DASHBOARD */
 async function loadDashboard(){
-let res=await fetch("http://green-commute-uib8.onrender.com/api/trips",{
+let res=await fetch("https://green-commute-uib8.onrender.com/api/trips",{
 headers:{"Authorization":"Bearer "+token}
 });
 let trips=await res.json();
@@ -210,7 +210,7 @@ document.getElementById("moneySpent").innerText="₹"+money.toFixed(2);
 
 /* HISTORY */
 async function loadHistory(){
-let res=await fetch("http://green-commute-uib8.onrender.com/api/trips",{
+let res=await fetch("https://green-commute-uib8.onrender.com/api/trips",{
 headers:{"Authorization":"Bearer "+token}
 });
 let trips=await res.json();
