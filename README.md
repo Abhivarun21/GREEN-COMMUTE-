@@ -269,13 +269,7 @@ This project promotes:
 
 # 👨‍💻 Developed By
 
-**Abhivarun and Team**
-
-### Contributions:
-- Frontend Development
-- Backend API Development
-- Database Integration
-- Deployment and Testing
+**Abhivarun, Pradham, Akshitha, Laasya, Sohan, Pranavi, Shruthika, shriyanka**
 
 ---
 
