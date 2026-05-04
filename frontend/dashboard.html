@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Commute Planner</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="style.css">
+
+<style>
+#map { height: 400px; margin-top:10px; }
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<h3>Green Commute Planner</h3>
+<div>
+<a href="#" onclick="showDashboard()">Dashboard</a>
+<a href="#" onclick="showHistory()">History</a>
+<a href="login.html" onclick="localStorage.removeItem('token')">Logout</a>
+</div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="container" id="dashboardSection">
+<h2>Dashboard</h2>
+
+<div class="stats-row">
+<div class="stat-box"><h3 id="totalTrips">0</h3><p>Total Trips</p></div>
+<div class="stat-box"><h3 id="co2Saved">0 kg</h3><p>CO₂ Saved</p></div>
+<div class="stat-box"><h3 id="ecoTrips">0</h3><p>Eco Trips</p></div>
+<div class="stat-box"><h3 id="moneySpent">₹0</h3><p>Money Spent</p></div>
+</div>
+
+<div class="search-box">
+<h3>Plan Route</h3>
+<input id="from" placeholder="From">
+<input id="to" placeholder="To">
+<button id="routeBtn" onclick="findRoute()">Find Route</button>
+<div id="map"></div>
+</div>
+</div>
+
+<!-- HISTORY -->
+<div class="container" id="historySection" style="display:none;">
+<h2>Trip History</h2>
+<table>
+<thead>
+<tr>
+<th>From</th><th>To</th><th>Mode</th><th>CO₂</th><th>Cost</th><th>Date</th>
+</tr>
+</thead>
+<tbody id="historyTable"></tbody>
+</table>
+</div>
+
+<!-- POPUP -->
+<div id="modePopup" class="popup">
+<h3>Select Mode</h3>
+<div id="modeOptions"></div>
+<button onclick="closePopup()">Cancel</button>
+</div>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>
